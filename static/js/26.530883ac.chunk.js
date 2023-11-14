@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhomepage=self.webpackChunkhomepage||[]).push([[26],{26:(e,s,n)=>{n.r(s),n.d(s,{default:()=>a});var i=n(184);const a=()=>(0,i.jsxs)("div",{children:[(0,i.jsx)("h2",{children:"About Page"}),(0,i.jsx)("main",{children:(0,i.jsx)("p",{children:"This section contains information about..."})})]})}}]);
+//# sourceMappingURL=26.530883ac.chunk.js.map
