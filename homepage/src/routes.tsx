@@ -34,18 +34,12 @@ const routes: RouteObject[] = [
       },      
       {
         path: '404',
-        index: true,
         element: <PageNotFound />,
       },
       {
         path: '*',
         element: <Navigate replace to='/404' />
       }
-      // {
-      //   path: '*',
-      //   index: true,
-      //   element: <Home />,
-      // }
     ]
   },
 ];

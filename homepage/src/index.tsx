@@ -5,13 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+
+
+const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
+  body {
+    color: ${props => (props.$whiteColor ? 'white' : 'black')};
+    font-family: ${props => props.theme.fontFamily};
+    background-color: #555;
+  }
+`
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <BrowserRouter basename="/homepage">
-      <App />
+    <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
+      <React.Fragment>
+        <App />
+        <GlobalStyle $whiteColor={true} />
+      </React.Fragment>
+    </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
