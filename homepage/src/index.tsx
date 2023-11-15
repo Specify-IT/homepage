@@ -21,14 +21,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/homepage">
     <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
       <React.Fragment>
-        <App />
         <GlobalStyle $whiteColor={true} />
+        <BrowserRouter basename="/homepage">
+          <App />
+        </BrowserRouter>  
       </React.Fragment>
     </ThemeProvider>
-    </BrowserRouter>
   </React.StrictMode>
 );
 
