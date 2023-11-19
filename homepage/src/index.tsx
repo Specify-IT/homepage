@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
   body {
     color: ${props => (props.$whiteColor ? 'white' : 'black')};
     font-family: ${props => props.theme.fontFamily};
-    background-color: #555;
+    background: linear-gradient(to left, #555 50%, #e0e0e0 50%);
   }
-`
+`;
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,7 +23,7 @@ root.render(
   <React.StrictMode>
     <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
       <React.Fragment>
-        <GlobalStyle $whiteColor={true} />
+        <GlobalStyle $whiteColor={false} />
         <BrowserRouter basename="/homepage">
           <App />
         </BrowserRouter>  
