@@ -12,6 +12,9 @@ const Loadable = (Component: any) => (props: JSX.IntrinsicAttributes) =>
 
 const Home = Loadable(lazy(() => import('./pages/Home')));
 const About = Loadable(lazy(() => import('./pages/About')));
+const Contact = Loadable(lazy(() => import('./pages/Contact')));
+const Services = Loadable(lazy(() => import('./pages/Services')));
+const Work = Loadable(lazy(() => import('./pages/Work')));
 const PageNotFound = Loadable(lazy(() => import('./pages/PageNotFound')));
 
 const routes: RouteObject[] = [
@@ -25,13 +28,24 @@ const routes: RouteObject[] = [
     children: [      
       {
         path: 'home',
-        index: true,
         element: <Home />,
       },
       {
         path: 'about',
         element: <About />
-      },      
+      },
+      {
+        path: 'contact',
+        element: <Contact />
+      },
+      {
+        path: 'services',
+        element: <Services />
+      },
+      {
+        path: 'work',
+        element: <Work />
+      },
       {
         path: '404',
         element: <PageNotFound />,
