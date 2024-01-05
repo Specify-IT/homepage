@@ -31,20 +31,37 @@ const LinksItem = styled.li`
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: 6fr 6fr;
-  grid-template-rows: 50px/s 10fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 50px/s 1fr;
   grid-template-areas:
-    'headerLeft headerRight'
+    'left right'
     'main main';
 
+  .mobile {
+    display: none;
+  };
+
+  .desktop {
+    display: block;
+  };
+
   ${media.md`
-    grid-template-columns: 0fr 12fr;
+    grid-template-columns: 1fr 1fr;
     background-color: orange;
+
+    .mobile {
+      display: block;
+    };
+
+    .desktop {
+      display: none;
+    };
   `};
 `;
 
 const Main = styled.div`
   grid-area: main;
+  min-height: calc(100vh - 34px);
 
   ${media.xxl`
     background-color: purple;
@@ -72,9 +89,16 @@ const Main = styled.div`
 `;
 
 const Menu1 = styled.div`
+  ${media.md`
+    top: 0;
+    position: sticky;
+    background-color: orange;
+  `};
 `;
 
 const Menu2 = styled.div`
+  max-height: 34px;
+  white-space: nowrap;
 `;
 
 interface MainLayoutProps {
@@ -84,8 +108,9 @@ interface MainLayoutProps {
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
     <Layout>
-      <Menu1></Menu1>
-      <Menu2>
+      <Menu1 className='mobile'>hamburger menu</Menu1>
+      <Menu1 className='desktop'></Menu1>
+      <Menu2 className='desktop'>
         <Links>
           <LinksItem><Link to='home'>Home</Link></LinksItem>
           <LinksItem><Link to='services'>Våra tjänster</Link></LinksItem>
@@ -94,7 +119,9 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
           <LinksItem><Link to='about'>Om oss</Link></LinksItem>          
         </Links>
       </Menu2>
-      <Main><Outlet /></Main>
+      <Main>
+        <Outlet />
+      </Main>
     </Layout>
      );
 };
