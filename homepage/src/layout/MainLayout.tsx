@@ -88,7 +88,15 @@ const Main = styled.div`
   `};
 `;
 
-const Menu1 = styled.div`
+const MobileMenu = styled.div`
+  text-align: right;
+
+  top: 0;
+  position: sticky;
+  background-color: orange;
+`;
+
+const Logo = styled.div`
   ${media.md`
     top: 0;
     position: sticky;
@@ -96,21 +104,49 @@ const Menu1 = styled.div`
   `};
 `;
 
-const Menu2 = styled.div`
+const DesktopMenu = styled.div`
   max-height: 34px;
   white-space: nowrap;
 `;
+
+const Hamburger = styled.button`
+  background-color: orange;
+  border: none;
+  padding: 4px;
+  margin: 0;
+`;
+
+const Bar = styled.span`
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+`;
+
 
 interface MainLayoutProps {
   children?: ReactNode;
 }
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+  const buttonClick = () => {
+    console.log('hamburger click');
+  };
+
   return (
     <Layout>
-      <Menu1 className='mobile'>hamburger menu</Menu1>
-      <Menu1 className='desktop'></Menu1>
-      <Menu2 className='desktop'>
+      <Logo>Logga</Logo>
+      <MobileMenu className='mobile'>
+        <Hamburger onClick={buttonClick}>
+          <Bar />
+          <Bar />
+          <Bar />
+        </Hamburger>
+      </MobileMenu>
+      <DesktopMenu className='desktop'>
         <Links>
           <LinksItem><Link to='home'>Home</Link></LinksItem>
           <LinksItem><Link to='services'>Våra tjänster</Link></LinksItem>
@@ -118,7 +154,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
           <LinksItem><Link to='contact'>Kontakt</Link></LinksItem>
           <LinksItem><Link to='about'>Om oss</Link></LinksItem>          
         </Links>
-      </Menu2>
+      </DesktopMenu>
       <Main>
         <Outlet />
       </Main>
