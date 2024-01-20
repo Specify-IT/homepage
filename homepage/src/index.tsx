@@ -9,11 +9,30 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 
 const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  };
+
+  html {
+    //font-size: 62.5%;
+    //font-family: 'Roboto', sans-serif;
+  };
+
+  li {
+    list-style: none;
+  };
+
+  a {
+    text-decoration: none;
+  };
+
   body {
     color: ${props => (props.$whiteColor ? 'white' : 'black')};
     font-family: ${props => props.theme.fontFamily};
     background: linear-gradient(to left, #555 50%, #e0e0e0 50%);
-  }
+  };
 `;
 
 const root = ReactDOM.createRoot(

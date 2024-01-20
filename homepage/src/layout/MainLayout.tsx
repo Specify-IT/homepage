@@ -1,33 +1,9 @@
-import type { FC, ReactNode } from 'react';
+import { useState, type FC, type ReactNode } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import media from './media';
-
-const Links = styled.ol`
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  margin-left: 5rem;
-  display: flex;
-`;
-
-const LinksItem = styled.li`
-  display: flex;
-
-  a {
-    padding: 0.5rem 1rem;
-    color: #fff;
-    text-decoration: none;
-    &:visited {
-      color: #fff;
-    }
-  }
-
-  &:hover {
-    background-color: #888;
-  }
-`;
+import MenuItems from './MenuItems';
 
 const Layout = styled.div`
   display: grid;
@@ -47,7 +23,7 @@ const Layout = styled.div`
 
   ${media.md`
     grid-template-columns: 1fr 1fr;
-    background-color: orange;
+    background-color: #555;
 
     .mobile {
       display: block;
@@ -93,14 +69,14 @@ const MobileMenu = styled.div`
 
   top: 0;
   position: sticky;
-  background-color: orange;
+  background-color: #555;
 `;
 
 const Logo = styled.div`
   ${media.md`
     top: 0;
     position: sticky;
-    background-color: orange;
+    background-color: #555;
   `};
 `;
 
@@ -110,10 +86,29 @@ const DesktopMenu = styled.div`
 `;
 
 const Hamburger = styled.button`
-  background-color: orange;
+  background-color: #555;
   border: none;
   padding: 4px;
   margin: 0;
+
+  &.active {
+    span:nth-child(2) {
+      opacity: 0;
+    };
+
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  &:hover {
+    background-color: #888;
+    cursor: pointer;
+  }
 `;
 
 const Bar = styled.span`
@@ -123,7 +118,7 @@ const Bar = styled.span`
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: #101010;
+  background-color: #fff;
 `;
 
 
@@ -132,28 +127,29 @@ interface MainLayoutProps {
 }
 
 const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+  const [moblieMenuActive, setMoblileMenuActive] = useState<boolean>(false);
+
   const buttonClick = () => {
-    console.log('hamburger click');
+    toggleMobileMenu();
+  };
+
+  const toggleMobileMenu = () => {
+    setMoblileMenuActive(() => !moblieMenuActive);
   };
 
   return (
     <Layout>
       <Logo>Logga</Logo>
       <MobileMenu className='mobile'>
-        <Hamburger onClick={buttonClick}>
+        <Hamburger onClick={buttonClick} className={moblieMenuActive?'active':''}>
           <Bar />
           <Bar />
           <Bar />
         </Hamburger>
+        <MenuItems isMobile={true} active={moblieMenuActive} menuItemClicked={toggleMobileMenu} />
       </MobileMenu>
       <DesktopMenu className='desktop'>
-        <Links>
-          <LinksItem><Link to='home'>Home</Link></LinksItem>
-          <LinksItem><Link to='services'>Våra tjänster</Link></LinksItem>
-          <LinksItem><Link to='work'>Jobb</Link></LinksItem>
-          <LinksItem><Link to='contact'>Kontakt</Link></LinksItem>
-          <LinksItem><Link to='about'>Om oss</Link></LinksItem>          
-        </Links>
+        <MenuItems />
       </DesktopMenu>
       <Main>
         <Outlet />
