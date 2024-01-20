@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, StyleSheetManager, ThemeProvider } from 'styled-components'
+import isPropValid from '@emotion/is-prop-valid';
 
 
 const GlobalStyle = createGlobalStyle<{ $whiteColor?: boolean; }>`
@@ -40,14 +41,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
-      <React.Fragment>
-        <GlobalStyle $whiteColor={false} />
-        <BrowserRouter basename="/homepage">
-          <App />
-        </BrowserRouter>  
-      </React.Fragment>
-    </ThemeProvider>
+    <StyleSheetManager shouldForwardProp={isPropValid}>
+      <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
+        <React.Fragment>
+          <GlobalStyle $whiteColor={false} />
+          <BrowserRouter basename="/homepage">
+            <App />
+          </BrowserRouter>  
+        </React.Fragment>
+      </ThemeProvider>
+    </StyleSheetManager>
   </React.StrictMode>
 );
 
