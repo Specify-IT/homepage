@@ -106,7 +106,6 @@ const Hamburger = styled.button`
   }
 
   &:hover {
-    background-color: #888;
     cursor: pointer;
   }
 `;
