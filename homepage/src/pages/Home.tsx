@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import media from '../layout/media';
 import Standard from '../components/Standard';
 import Hero from '../components/Hero';
+import Balance from '../assets/images/balance.jpg';
+import Picture from '../components/Picture';
 
 const Item = styled.div`
   height: 200px;
@@ -20,6 +22,7 @@ const Home = () => {
   return (
     <Container>
       <Hero text='Specify IT'></Hero>
+      <Picture picture={Balance} ></Picture>
       <Standard horizontal='left' vertical='end' >Standard content</Standard>
       <Item>item1</Item>
       <Item>item2</Item>
