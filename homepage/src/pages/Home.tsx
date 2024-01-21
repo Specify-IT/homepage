@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import media from '../layout/media';
 import Standard from '../components/Standard';
 import Hero from '../components/Hero';
+import Background1 from "../assets/images/background.png";
+import Background2 from "../assets/images/butterfly.svg";
 
 const Item = styled.div`
   height: 200px;
@@ -19,7 +21,8 @@ const Container = styled.div`
 const Home = () => {
   return (
     <Container>
-      <Hero image={1} feather={true}></Hero>
+      {/* <Hero image={Background1} feather={true} text='Specify IT'></Hero> */}
+      <Hero feather={true} text='Specify IT'></Hero>
       <Standard>Standard content</Standard>
       <Item>item1</Item>
       <Item>item2</Item>

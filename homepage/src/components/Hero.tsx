@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import media from "../layout/media";
-import Background from "../assets/images/background.png";
 
 type ContainerProps = {
   feather: boolean;
@@ -9,7 +8,6 @@ type ContainerProps = {
 const Container = styled.div<ContainerProps>`
   margin: 0.3rem;
   border-radius: 0.5rem;
-  background-color: azure;
   grid-column: 1 / 3;
 
   display: flex;
@@ -38,11 +36,6 @@ const Container = styled.div<ContainerProps>`
   }};
 
   height: 300px;
-  
-  ${media.md`
-    grid-column: 1 / 1;
-    height: 150px;
-  `};
 
   ${media.xxl`
     
@@ -56,6 +49,11 @@ const Container = styled.div<ContainerProps>`
     
   `};
 
+  ${media.md`
+    grid-column: 1 / 1;
+    height: 150px;
+  `};
+
   ${media.sm`
 
   `};
@@ -65,16 +63,34 @@ const Container = styled.div<ContainerProps>`
   `};
 `;
 
+const HeroText = styled.span`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: inline-table;
+  color: #333;
+  font-weight: 600;
+  font-size: 6rem;
+
+  ${media.md`
+    font-size: 4rem;
+  `};
+`;
+
 type HeroProps = {
-  image: unknown;
+  image?: string;
   feather?: boolean;
+  text?: string;
 };
 
-const Hero = ({image, feather = false}: HeroProps) => {
+const Hero = ({image, feather = false, text}: HeroProps) => {
   return (
     <Container feather={feather}>
-      {/* <Butterfly fill="red" height="10rem" width="100%" /> */}
-      <img src={Background} alt="hero" width="100%" height="100%" />
+      <HeroText>{text}</HeroText>
+      {image && <img src={image} alt="hero" width="100%" height="100%" />}
     </Container>
   );
 };

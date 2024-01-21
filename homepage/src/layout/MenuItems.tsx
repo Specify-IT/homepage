@@ -49,6 +49,21 @@ const LinksItem = styled.li<LinksItemProps>`
   ${props => props.isMobile ? '' : '&:hover { background-color: #888; }' };
 `;
 
+type MenuLinkProps = {
+  isMobile: boolean;
+};
+
+const MenuLink = styled(Link)<MenuLinkProps>`
+  ${(props) => {
+    if (props.isMobile) {
+      return css`
+        width: 100%;
+        font-size: 2rem;    
+      `;
+    }
+  }};
+`;
+
 type MenuItemsProps = {
   isMobile?: boolean;
   active?: boolean;
@@ -58,11 +73,11 @@ type MenuItemsProps = {
 const MenuItems = ({isMobile = false, active = true, menuItemClicked = () => {}}: MenuItemsProps) => {
   return (
     <Links isMobile={isMobile} active={active}>
-      <LinksItem isMobile={isMobile}><Link to='home' onClick={() => menuItemClicked()}>Home</Link></LinksItem>
-      <LinksItem isMobile={isMobile}><Link to='services' onClick={() => menuItemClicked()}>Våra tjänster</Link></LinksItem>
-      <LinksItem isMobile={isMobile}><Link to='work' onClick={() => menuItemClicked()}>Jobb</Link></LinksItem>
-      <LinksItem isMobile={isMobile}><Link to='contact' onClick={() => menuItemClicked()}>Kontakt</Link></LinksItem>
-      <LinksItem isMobile={isMobile}><Link to='about' onClick={() => menuItemClicked()}>Om oss</Link></LinksItem>          
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='home' onClick={() => menuItemClicked()}>Home</MenuLink></LinksItem>
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='services' onClick={() => menuItemClicked()}>Våra tjänster</MenuLink></LinksItem>
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='work' onClick={() => menuItemClicked()}>Jobb</MenuLink></LinksItem>
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='contact' onClick={() => menuItemClicked()}>Kontakt</MenuLink></LinksItem>
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='about' onClick={() => menuItemClicked()}>Om oss</MenuLink></LinksItem>          
     </Links>
   )
 };
