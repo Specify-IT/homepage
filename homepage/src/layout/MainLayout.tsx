@@ -40,6 +40,7 @@ const Main = styled.div`
   grid-area: main;
   min-height: calc(100vh - 34px);
 
+  padding: 2rem;
   background-color: #fff;
 
   /* ${media.xxl`

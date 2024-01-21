@@ -1,11 +1,29 @@
+import styled from "styled-components";
+import media from "../layout/media";
+import Hero from "../components/Hero";
+import Picture from "../components/Picture";
+import Balance from '../assets/images/balance.jpg';
+import GridText from "../components/GridText";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  ${media.md`
+    grid-template-columns: 1fr;
+  `};
+`;
+
 const About = () => {
   return (
-    <div>
-      <h2>About Page</h2>
-      <main>
-        <p>This section contains information about...</p>
-      </main>
-    </div>
+    <Container>
+      <Hero text='Specify IT'></Hero>
+      <Picture picture={Balance} ></Picture>
+      <GridText vertical='start' text={`
+      Vi ser att det behövs en harmoni i arbetslivet där både arbetstagare och arbetsgivare ska kunna få ut så mycket som möjligt.
+      Specify IT bildades därför 2015 där vi såg ett behov av att kunna erbjuda både helhetslösningar åt kunder.
+      Men också att kunna hjälpa egenföretagare eller de som vill ta steget till att bli egenföretagare.`} ></GridText>
+    </Container>
   );
 }
 
