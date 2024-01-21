@@ -1,18 +1,15 @@
 import { ReactNode } from "react";
-import styled from "styled-components";
-
-const Container = styled.div`
-  margin: 0.3rem;
-  border-radius: 0.5rem;
-  background-color: pink;
-`;
+import { AlignItemsType, BaseContainer, JustifyContentType } from "../base-styled-components/BaseContainer";
 
 type StandardProps = {
   children?: ReactNode;
+  horizontal?: JustifyContentType;
+  vertical?: AlignItemsType;
+  feather?: boolean;
 };
 
-const Standard = ({children}: StandardProps) => {
-  return <Container>{children}</Container>
+const Standard = ({children, horizontal = "center", vertical = "center", feather = false}: StandardProps) => {
+  return <BaseContainer horizontal={horizontal} vertical={vertical} feather={feather}>{children}</BaseContainer>
 };
 
 export default Standard;

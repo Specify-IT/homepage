@@ -73,7 +73,7 @@ type MenuItemsProps = {
 const MenuItems = ({isMobile = false, active = true, menuItemClicked = () => {}}: MenuItemsProps) => {
   return (
     <Links isMobile={isMobile} active={active}>
-      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='home' onClick={() => menuItemClicked()}>Home</MenuLink></LinksItem>
+      <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='home' onClick={() => menuItemClicked()}>Hem</MenuLink></LinksItem>
       <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='services' onClick={() => menuItemClicked()}>Våra tjänster</MenuLink></LinksItem>
       <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='work' onClick={() => menuItemClicked()}>Jobb</MenuLink></LinksItem>
       <LinksItem isMobile={isMobile}><MenuLink isMobile={isMobile} to='contact' onClick={() => menuItemClicked()}>Kontakt</MenuLink></LinksItem>
