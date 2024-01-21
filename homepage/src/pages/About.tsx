@@ -20,9 +20,9 @@ const About = () => {
       <Hero text='Specify IT'></Hero>
       <Picture picture={Balance} ></Picture>
       <GridText vertical='start' text={`
-      Vi ser att det behövs en harmoni i arbetslivet där både arbetstagare och arbetsgivare ska kunna få ut så mycket som möjligt.
-      Specify IT bildades därför 2015 där vi såg ett behov av att kunna erbjuda både helhetslösningar åt kunder.
-      Men också att kunna hjälpa egenföretagare eller de som vill ta steget till att bli egenföretagare.`} ></GridText>
+      Specify IT bildades 2015 där vi såg ett behov av att kunna erbjuda helhetslösningar åt kunder.
+      Men också att samtidigt kunna hjälpa egenföretagare eller de som vill ta steget till att bli egenföretagare.
+      Vi ser att det behövs en harmoni i arbetslivet där både arbetstagare och arbetsgivare ska kunna få ut så mycket som möjligt.`} ></GridText>
     </Container>
   );
 }
