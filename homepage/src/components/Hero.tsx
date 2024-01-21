@@ -10,7 +10,6 @@ const Container = styled.div<ContainerProps>`
   margin: 0.3rem;
   border-radius: 0.5rem;
   background-color: azure;
-  min-height: 15rem;
   grid-column: 1 / 3;
 
   display: flex;
@@ -38,24 +37,27 @@ const Container = styled.div<ContainerProps>`
     }
   }};
 
+  height: 300px;
+  
   ${media.md`
     grid-column: 1 / 1;
+    height: 150px;
   `};
 
   ${media.xxl`
-    height: 400px;
+    
   `};
 
   ${media.xl`
-    height: 200px;
+    height: 200px
   `};
 
   ${media.lg`
-    height: 400px;
+    
   `};
 
   ${media.sm`
-    height: 200px;
+
   `};
 
   ${media.xs`

@@ -97,7 +97,7 @@ const DesktopMenu = styled.div`
 const Hamburger = styled.button`
   background-color: #555;
   border: none;
-  padding: 4px;
+  padding: 10px;
   margin: 0;
 
   &.active {

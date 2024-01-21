@@ -5,7 +5,6 @@ const Container = styled.div`
   margin: 0.3rem;
   border-radius: 0.5rem;
   background-color: pink;
-  min-height: 15rem;
 `;
 
 type StandardProps = {
