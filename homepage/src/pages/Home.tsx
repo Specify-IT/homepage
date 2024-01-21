@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import media from '../layout/media';
+import Standard from '../components/Standard';
+import Hero from '../components/Hero';
 
 const Item = styled.div`
   height: 200px;
@@ -17,12 +19,15 @@ const Container = styled.div`
 const Home = () => {
   return (
     <Container>
+      <Hero image={1} feather={true}></Hero>
+      <Standard>Standard content</Standard>
+      <Item>item1</Item>
+      <Item>item2</Item>
+      <Item>item3</Item>
+      <Item>item4</Item>
+      <Item>item5</Item>
+      <Standard>Standard content</Standard>
       <h2>Home Page</h2>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
-      <Item></Item>
       <Item></Item>
       <Item></Item>
       <Item></Item>

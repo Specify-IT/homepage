@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import media from './media';
 import MenuItems from './MenuItems';
+import { ReactComponent as EggLogo } from "../assets/images/logo-white.svg";
 
 const Layout = styled.div`
   display: grid;
@@ -39,7 +40,9 @@ const Main = styled.div`
   grid-area: main;
   min-height: calc(100vh - 34px);
 
-  ${media.xxl`
+  background-color: #fff;
+
+  /* ${media.xxl`
     background-color: purple;
   `};
 
@@ -61,11 +64,13 @@ const Main = styled.div`
 
   ${media.xs`
     background-color: green;
-  `};
+  `}; */
 `;
 
 const MobileMenu = styled.div`
   text-align: right;
+  z-index: 1;
+  height: 50px;
 
   top: 0;
   position: sticky;
@@ -73,7 +78,11 @@ const MobileMenu = styled.div`
 `;
 
 const Logo = styled.div`
+  height: 34px;
+
   ${media.md`
+    height: 50px;
+    z-index: 1;
     top: 0;
     position: sticky;
     background-color: #555;
@@ -81,7 +90,7 @@ const Logo = styled.div`
 `;
 
 const DesktopMenu = styled.div`
-  max-height: 34px;
+  height: 34px;
   white-space: nowrap;
 `;
 
@@ -120,6 +129,15 @@ const Bar = styled.span`
   background-color: #fff;
 `;
 
+const CompanyLogo = styled(EggLogo)`
+  width: 20px;
+  height: 32px;
+
+  ${media.md`
+    width: 30px;
+    height: 50px;
+  `};
+`;
 
 interface MainLayoutProps {
   children?: ReactNode;
@@ -138,7 +156,9 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <Layout>
-      <Logo>Logga</Logo>
+      <Logo>
+        <CompanyLogo viewBox='-10 10 45 20' x="50%" y="50%" />
+      </Logo>
       <MobileMenu className='mobile'>
         <Hamburger onClick={buttonClick} className={moblieMenuActive?'active':''}>
           <Bar />

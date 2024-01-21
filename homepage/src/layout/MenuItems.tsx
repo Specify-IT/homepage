@@ -15,6 +15,7 @@ const Links = styled.ol<LinksProps>`
   ${(props) => {
     if (props.isMobile) {
       return css`
+        top: 50px;
         position: fixed;
         left: ${props.active ? '0': '-100%'};
         flex-direction: column;
