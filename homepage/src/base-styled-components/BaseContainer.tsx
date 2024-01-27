@@ -12,6 +12,7 @@ export type BaseContainerProps = {
 export const BaseContainer = styled.div<BaseContainerProps>`
   position: relative;
   margin: 0.3rem;
+  margin-top: 1.5rem;
   border-radius: 0.5rem;
 
   display: flex;

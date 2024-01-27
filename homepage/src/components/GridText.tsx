@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AlignItemsType, BaseContainer, BaseContainerProps, JustifyContentType } from "../base-styled-components/BaseContainer";
 import media from "../layout/media";
 
 type ContainerProps = {
+  fullWidth: boolean;
 } & BaseContainerProps;
 
 const Container = styled(BaseContainer)<ContainerProps>`
@@ -11,18 +12,27 @@ const Container = styled(BaseContainer)<ContainerProps>`
   ${media.md`
     font-size: 1.5rem;
   `};
+
+  ${(props) => {
+    if (props.fullWidth) {
+      return css`
+        grid-column: 1 / 1;
+      `;
+    }
+  }};
 `;
 
 type TextProps = {
-  text: string;
+  children: JSX.Element;
   horizontal?: JustifyContentType;
   vertical?: AlignItemsType;
+  fullwidth?: boolean;
 };
 
-const GridText = ({text, horizontal = "center", vertical = "center"}: TextProps) => {
+const GridText = ({children, horizontal = "center", vertical = "center", fullwidth = false}: TextProps) => {
   return (
-    <Container feather={false} horizontal={horizontal} vertical={vertical}>
-      {text}
+    <Container feather={false} horizontal={horizontal} vertical={vertical} fullWidth={fullwidth}>
+      {children}
     </Container>
   );
 };
