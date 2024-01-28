@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import { AlignItemsType, BaseContainer, BaseContainerProps, JustifyContentType } from "../base-styled-components/BaseContainer";
-import media from "../layout/media";
+import { AlignItemsType, BaseContainer, BaseContainerProps, JustifyContentType } from "../../base-styled-components/BaseContainer";
+import media from "../../layout/media";
 
 type ContainerProps = {
   fullWidth: boolean;
@@ -8,18 +8,21 @@ type ContainerProps = {
 
 const Container = styled(BaseContainer)<ContainerProps>`
   font-size: 2rem;;
+  flex-direction: column;
 
-  ${media.md`
-    font-size: 1.5rem;
-  `};
-
+  
   ${(props) => {
     if (props.fullWidth) {
       return css`
-        grid-column: 1 / 1;
+        grid-column: 1 / 3;
       `;
     }
   }};
+
+  ${media.md`
+    font-size: 1.5rem;
+    grid-column: 1 / 1; // we don't care of fullwidth in mobiles
+  `};
 `;
 
 type TextProps = {
