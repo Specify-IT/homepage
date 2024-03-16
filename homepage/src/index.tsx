@@ -45,7 +45,7 @@ root.render(
       <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
         <React.Fragment>
           <GlobalStyle $whiteColor={false} />
-          <BrowserRouter basename="/">
+          <BrowserRouter basename="/homepage">
             <App />
           </BrowserRouter>  
         </React.Fragment>
