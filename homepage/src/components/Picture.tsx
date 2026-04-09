@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { BaseContainer } from "../base-styled-components/BaseContainer";
 import media from "../layout/media";
+import type { ReactNode } from "react";
 
 const Container = styled(BaseContainer)`
   overflow: hidden;
@@ -29,12 +30,14 @@ const Container = styled(BaseContainer)`
 type PictureProps = {
   picture?: string;
   feather?: boolean;
+  children?: ReactNode;
 };
 
-const Picture = ({picture, feather = false}: PictureProps) => {
+const Picture = ({picture, feather = false, children}: PictureProps) => {
   return (
     <Container feather={feather} horizontal="center" vertical="center">
       {picture && <img src={picture} alt="hero" />}
+      {children}
     </Container>
   );
 };

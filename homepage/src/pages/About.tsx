@@ -5,12 +5,15 @@ import BaseGrid from "../base-styled-components/BaseGrid";
 import Span from "../components/grid-text/Span";
 import H2 from "../components/grid-text/H2";
 import Section from "../components/Section";
+import MatrixOverlay from "../components/MatrixOverlay";
 
 const About = () => {
   return (
     <BaseGrid>
       <Section>
-        <Picture picture={Balance} />
+        <Picture picture={Balance}>
+            <MatrixOverlay src={Balance} />
+          </Picture>
         <GridText horizontal="center" vertical='center'>
           <>
             <H2 text='Om Specify IT' />
