@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 const Span = styled.span`
-  padding-top: 20px;
-  font-weight: 600;
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  font-size: 1.05rem;
 `;
 
 type BProps = {

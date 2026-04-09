@@ -7,10 +7,14 @@ type ContainerProps = {
 } & BaseContainerProps;
 
 const Container = styled(BaseContainer)<ContainerProps>`
-  font-size: 2rem;;
+  font-size: 1.125rem;
+  line-height: 1.75;
   flex-direction: column;
+  padding: 2.5rem 3rem;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  align-items: flex-start;
 
-  
   ${(props) => {
     if (props.fullWidth) {
       return css`
@@ -20,7 +24,8 @@ const Container = styled(BaseContainer)<ContainerProps>`
   }};
 
   ${media.md`
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding: 1.5rem;
     grid-column: 1 / 1; // we don't care of fullwidth in mobiles
   `};
 `;

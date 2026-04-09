@@ -4,15 +4,19 @@ import { AlignItemsType, BaseContainer, JustifyContentType } from "../base-style
 
 const HeroContainer = styled(BaseContainer)`
   grid-column: 1 / 3;
-  height: 300px;
+  height: 540px;
+  background: linear-gradient(135deg, var(--color-brand-darker) 0%, var(--color-brand) 60%, var(--color-brand-light) 100%);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 
   ${media.xl`
-    height: 200px
+    height: 380px;
   `};
 
   ${media.md`
     grid-column: 1 / 1;
-    height: 150px;
+    height: 220px;
+    border-radius: var(--radius-sm);
   `};
 `;
 
@@ -24,12 +28,19 @@ const HeroText = styled.span`
   bottom: 0;
   margin: auto;
   display: inline-table;
-  color: #333;
-  font-weight: 600;
-  font-size: 6rem;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 5.5rem;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-shadow: 0 2px 24px rgba(30, 19, 51, 0.4);
+
+  ${media.xl`
+    font-size: 4rem;
+  `};
 
   ${media.md`
-    font-size: 4rem;
+    font-size: 2.5rem;
   `};
 `;
 

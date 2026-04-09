@@ -9,7 +9,7 @@ import { ReactComponent as EggLogo } from "../assets/images/logo-white.svg";
 const Layout = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 50px/s 1fr;
+  grid-template-rows: 64px 1fr;
   grid-template-areas:
     'left right'
     'main main';
@@ -24,7 +24,7 @@ const Layout = styled.div`
 
   ${media.md`
     grid-template-columns: 1fr 1fr;
-    background-color: #555;
+    background-color: var(--color-brand-darker);
 
     .mobile {
       display: block;
@@ -38,68 +38,68 @@ const Layout = styled.div`
 
 const Main = styled.div`
   grid-area: main;
-  min-height: calc(100vh - 34px);
+  min-height: calc(100vh - 64px);
+  background-color: var(--color-bg-subtle);
+`;
 
+const InnerContent = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 2rem;
-  background-color: #fff;
 
-  /* ${media.xxl`
-    background-color: purple;
-  `};
-
-  ${media.xl`
-    background-color: pink;
-  `};
-
-  ${media.lg`
-    background-color: yellow;
-  `};
-  
   ${media.md`
-    background-color: red;
+    padding: 1rem;
   `};
-
-  ${media.sm`
-    background-color: blue;
-  `};
-
-  ${media.xs`
-    background-color: green;
-  `}; */
 `;
 
 const MobileMenu = styled.div`
   text-align: right;
-  z-index: 1;
-  height: 50px;
+  z-index: 100;
+  height: 64px;
 
   top: 0;
   position: sticky;
-  background-color: #555;
+  background-color: var(--color-brand-darker);
+  box-shadow: 0 2px 16px rgba(30, 19, 51, 0.5);
 `;
 
 const Logo = styled.div`
-  height: 34px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  background-color: var(--color-brand-darker);
+  box-shadow: 0 2px 16px rgba(30, 19, 51, 0.5);
 
   ${media.md`
-    height: 50px;
-    z-index: 1;
+    height: 64px;
+    z-index: 100;
     top: 0;
     position: sticky;
-    background-color: #555;
+    background-color: var(--color-brand-darker);
   `};
 `;
 
 const DesktopMenu = styled.div`
-  height: 34px;
+  height: 64px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+  background-color: var(--color-brand-darker);
+  box-shadow: 0 2px 16px rgba(30, 19, 51, 0.5);
+  top: 0;
+  position: sticky;
+  z-index: 100;
 `;
 
 const Hamburger = styled.button`
-  background-color: #555;
+  background-color: transparent;
   border: none;
-  padding: 10px;
+  padding: 10px 16px;
   margin: 0;
+  height: 64px;
 
   &.active {
     span:nth-child(2) {
@@ -117,6 +117,7 @@ const Hamburger = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.08);
   }
 `;
 
@@ -131,12 +132,12 @@ const Bar = styled.span`
 `;
 
 const CompanyLogo = styled(EggLogo)`
-  width: 20px;
-  height: 32px;
+  width: 28px;
+  height: 44px;
 
   ${media.md`
-    width: 30px;
-    height: 50px;
+    width: 28px;
+    height: 44px;
   `};
 `;
 
@@ -172,7 +173,9 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
         <MenuItems />
       </DesktopMenu>
       <Main>
-        <Outlet />
+        <InnerContent>
+          <Outlet />
+        </InnerContent>
       </Main>
     </Layout>
      );

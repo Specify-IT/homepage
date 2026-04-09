@@ -4,17 +4,24 @@ import media from "../layout/media";
 
 const Container = styled(BaseContainer)`
   overflow: hidden;
-  background-color: #bbb;
+  background-color: var(--color-border);
+  box-shadow: var(--shadow-md);
 
+  height: 520px;
 
-  height: 600px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   ${media.xl`
-    height: 500px
+    height: 420px;
   `};
 
   ${media.md`
-    height: 320px;
+    height: 280px;
   `};
 `;
 
