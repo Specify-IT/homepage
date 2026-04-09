@@ -4,11 +4,12 @@ import media from "../layout/media";
 const BaseGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  column-gap: 1.25rem;
+  row-gap: 1rem;
 
   ${media.md`
     grid-template-columns: 1fr;
-    gap: 1rem;
+    row-gap: 0.85rem;
   `};
 `;
 

@@ -45,10 +45,10 @@ const Main = styled.div`
 const InnerContent = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
 
   ${media.md`
-    padding: 1rem;
+    padding: 0.75rem;
   `};
 `;
 
