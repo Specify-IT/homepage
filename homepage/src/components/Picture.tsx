@@ -5,11 +5,12 @@ import media from "../layout/media";
 const Container = styled(BaseContainer)`
   overflow: hidden;
   background-color: var(--color-border);
-  box-shadow: var(--shadow-md);
 
-  height: 520px;
+  min-height: 420px;
 
   img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -17,11 +18,11 @@ const Container = styled(BaseContainer)`
   }
 
   ${media.xl`
-    height: 420px;
+    min-height: 340px;
   `};
 
   ${media.md`
-    height: 280px;
+    min-height: 260px;
   `};
 `;
 
