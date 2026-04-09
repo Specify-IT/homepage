@@ -41,6 +41,11 @@ const LinksItem = styled.li<LinksItemProps>`
   height: 100%;
   align-items: center;
 
+  ${props => props.isMobile ? `
+    width: 100%;
+    height: auto;
+  ` : ''};
+
   a {
     padding: 0 1.25rem;
     height: 100%;
@@ -92,8 +97,8 @@ const MenuLink = styled(Link)<MenuLinkProps>`
     if (props.isMobile) {
       return css`
         width: 100%;
-        font-size: 1.1rem;
-        padding: 1.25rem 0 !important;
+        font-size: 0.95rem;
+        padding: 0.9rem 1rem !important;
         height: auto !important;
         justify-content: center;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
