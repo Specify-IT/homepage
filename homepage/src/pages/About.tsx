@@ -1,5 +1,5 @@
 import Picture from "../components/Picture";
-import Balance from '../assets/images/balance.jpg';
+import Balance from '../assets/images/about.jpg';
 import GridText from "../components/grid-text/GridText";
 import BaseGrid from "../base-styled-components/BaseGrid";
 import Span from "../components/grid-text/Span";
