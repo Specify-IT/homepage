@@ -25,6 +25,11 @@ const SectionWrapper = styled.div`
     grid-column: 1 / 1;
     flex-direction: column;
     min-height: unset;
+
+    > * {
+      flex: none;
+      width: 100%;
+    }
   `};
 `;
 
